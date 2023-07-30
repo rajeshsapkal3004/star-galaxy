@@ -1,5 +1,5 @@
 package com.cartwheel.galaxy.dto;
 
-public class EmployeeDto{
+public class  UserDto{
 
 }
