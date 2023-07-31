@@ -1,5 +1,7 @@
 package com.cartwheel.galaxy.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,20 +13,16 @@ import com.cartwheel.galaxy.repository.UserRepository;
 import com.cartwheel.galaxy.service.HomeService;
 
 @Service
-public class UserDetailsServiceImpl implements  UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
-		User user = userRepository.findByUsername(username);
-		if (user == null) {
-			throw new UsernameNotFoundException("User is not found! : "+username);
-			
-		}
-		 return user;
-	 }
 
+		Optional<User> user = userRepository.findByUserName(username);
+		return user.map(UserServiceImpl::new)
+				.orElseThrow(() -> new UsernameNotFoundException("User not Found!! " + username));
+	}
 }
