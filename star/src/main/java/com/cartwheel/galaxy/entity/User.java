@@ -1,14 +1,13 @@
 package com.cartwheel.galaxy.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "User_table")
 public class User {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String userName;
 	private String password;
@@ -26,7 +25,7 @@ public class User {
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public boolean isActive() {

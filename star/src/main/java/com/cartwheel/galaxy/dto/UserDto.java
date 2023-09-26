@@ -7,6 +7,8 @@ public class UserDto {
 	private String UserRole;
 	private boolean isActive;
 
+
+
 	public String getUserName() {
 		return userName;
 	}
