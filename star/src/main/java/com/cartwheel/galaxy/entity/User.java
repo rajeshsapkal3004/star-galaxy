@@ -1,6 +1,7 @@
 package com.cartwheel.galaxy.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "User_table")
@@ -11,8 +12,48 @@ public class User {
 	private int id;
 	private String userName;
 	private String password;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private Date dateOfBirth;
+	private String address;
+	private String phoneNumber;
+	private boolean termsAccepted;
+	private String gender;
 	private String UserRole;
 	private boolean isActive;
+
+	public User(int id, String userName, String password, String email, String firstName, String lastName, Date dateOfBirth, String address, String phoneNumber, boolean termsAccepted, String gender, String userRole, boolean isActive) {
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.termsAccepted = termsAccepted;
+		this.gender = gender;
+		UserRole = userRole;
+		this.isActive = isActive;
+	}
+
+	public User(int id, String userName, String password, String email, String firstName, String lastName, Date dateOfBirth, String address, String phoneNumber, boolean termsAccepted, String userRole, boolean isActive) {
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.termsAccepted = termsAccepted;
+		UserRole = userRole;
+		this.isActive = isActive;
+	}
+
 
 	public User(int id, String userName, String password, String userRole, boolean isActive) {
 		super();
@@ -27,6 +68,15 @@ public class User {
 		super();
 
 	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 
 	public boolean isActive() {
 		return isActive;
@@ -68,9 +118,79 @@ public class User {
 		UserRole = userRole;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public boolean isTermsAccepted() {
+		return termsAccepted;
+	}
+
+	public void setTermsAccepted(boolean termsAccepted) {
+		this.termsAccepted = termsAccepted;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", UserRole=" + UserRole + "]";
+		return "User{" +
+				"id=" + id +
+				", userName='" + userName + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", dateOfBirth=" + dateOfBirth +
+				", address='" + address + '\'' +
+				", phoneNumber='" + phoneNumber + '\'' +
+				", termsAccepted=" + termsAccepted +
+				", gender='" + gender + '\'' +
+				", UserRole='" + UserRole + '\'' +
+				", isActive=" + isActive +
+				'}';
 	}
 
 }
