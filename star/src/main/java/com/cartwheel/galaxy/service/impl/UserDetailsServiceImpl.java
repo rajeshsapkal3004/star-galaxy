@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.cartwheel.galaxy.entity.User;
 import com.cartwheel.galaxy.repository.UserRepository;
-import com.cartwheel.galaxy.service.HomeService;
+
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -25,4 +25,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return user.map(UserServiceImpl::new)
 				.orElseThrow(() -> new UsernameNotFoundException("User not Found!! " + username));
 	}
+
 }

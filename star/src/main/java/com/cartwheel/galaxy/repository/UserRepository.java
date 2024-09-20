@@ -11,4 +11,5 @@ import com.cartwheel.galaxy.entity.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	Optional<User> findByUserName(String username);
 	User findById(int id);
+	User findByEmailIgnoreCase(String emailId);
 }

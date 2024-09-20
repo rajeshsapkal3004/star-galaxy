@@ -23,4 +23,15 @@ public class CreateUserServiceImpl implements CreateUserService {
 		}
 		return saveUser;
 	}
+
+	@Override
+	public User findByEmail(String email) {
+		User user= null;
+		if(email!=null){
+			user=userRepository.findByEmailIgnoreCase(email);
+		}
+		return user;
+	}
+
+
 }
